@@ -1,5 +1,5 @@
 runtime: nodejs22
-service: embassyloanex
+service: ngoex
 handlers:
   - url: /.*
     script: auto
