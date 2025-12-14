@@ -6,20 +6,20 @@ const verifyAdmin = require("../middleware/verifyAdmin")
 
 
   router.post("/send-email", async (req, res) => {
-  const { to, subject, text } = req.body;
+  const {  subject, text } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "travelbyservice@gmail.com",
-      pass: "dzyyijaemkjezbbn", 
+      user: "apna.ghar786ss@gmail.com",
+      pass: "qysubmfxqznydfpg", 
     },
   });
 
  try {
   await transporter.sendMail({
-    from: "travelbyservice@gmail.com",
-    to,
+    from: "apna.ghar786ss@gmail.com",
+    to: "apnaghr.com@gmail.com",
     subject,
     html: text,
   });
@@ -41,20 +41,13 @@ router.post("/create", async (req, res) => {
       email,
       job,
       country,
+      city,
       phoneNumber,
-      address,
-      cnicNumber,
-      status,
-      passportFrontImage,
-      passportBackImage,
-      frontCnic,
-      backCnic,
-      passportSizePhotoImage,
+      
     } = req.body;
 
     if (
-      !firstName || !lastName || !email || !job || !country || !phoneNumber || !address || !cnicNumber ||
-      !passportFrontImage || !passportBackImage || !frontCnic || !backCnic || !passportSizePhotoImage
+      !firstName || !lastName || !email || !job || !country || !phoneNumber || !city
     ) {
       return res.status(400).json({ error: "All fields are required" });
     }
@@ -70,15 +63,8 @@ router.post("/create", async (req, res) => {
       email,
       job,
       country,
+      city,
       phoneNumber,
-      address,
-      cnicNumber,
-      status: status || undefined,
-      passportFrontImage,
-      passportBackImage,
-      frontCnic,
-      backCnic,
-      passportSizePhotoImage,
     });
 
     await user.save();

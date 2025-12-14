@@ -17,44 +17,16 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  cnicNumber:{
+  country:{
     type: String,
     required: true
   },
-  status:{
-    type: String,
-    default: "Pending"
-  },
-  country:{
+  city:{
     type: String,
     required: true
   },
   phoneNumber: {
     type: String,
-    required: true
-  },
-  address: {
-    type: String,
-    required: true
-  },
-  passportFrontImage: {
-    type: String, // Store image URL or base64 string
-    required: true
-  },
-  passportBackImage: {
-    type: String, // Store image URL or base64 string
-    required: true
-  },
-  frontCnic: {
-    type: String, // Store image URL or base64 string
-    required: true
-  },
-  backCnic: {
-    type: String, // Store image URL or base64 string
-    required: true
-  },
-  passportSizePhotoImage: {
-    type: String, // Store image URL or base64 string
     required: true
   }
 });
