@@ -11,14 +11,14 @@ const verifyAdmin = require("../middleware/verifyAdmin")
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "apna.ghar786ss@gmail.com",
-      pass: "qysubmfxqznydfpg", 
+      user: "metatech.official786@gmail.com",
+      pass: "jwhhjsblznetxmcs", 
     },
   });
 
  try {
   await transporter.sendMail({
-    from: "apna.ghar786ss@gmail.com",
+    from: "metatech.official786@gmail.com",
     to: "apnaghr.com@gmail.com",
     subject,
     html: text,
@@ -43,11 +43,13 @@ router.post("/create", async (req, res) => {
       country,
       city,
       phoneNumber,
+      currentAddress,
+      age,
       
     } = req.body;
 
     if (
-      !firstName || !lastName || !email || !job || !country || !phoneNumber || !city
+      !firstName || !lastName || !email || !job || !country || !phoneNumber || !city || !currentAddress || (age === undefined || age === null)
     ) {
       return res.status(400).json({ error: "All fields are required" });
     }
@@ -65,6 +67,8 @@ router.post("/create", async (req, res) => {
       country,
       city,
       phoneNumber,
+      currentAddress,
+      age,
     });
 
     await user.save();

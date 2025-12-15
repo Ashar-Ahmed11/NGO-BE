@@ -28,6 +28,18 @@ const UserSchema = new mongoose.Schema({
   phoneNumber: {
     type: String,
     required: true
+  },
+  currentAddress:{
+    type: String,
+    required: true
+  },
+  age:{
+    type: Number,
+    required: true
+  },
+  date:{
+    type: Date,
+    default: Date.now
   }
 });
 
